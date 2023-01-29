@@ -24,7 +24,6 @@
     <!-- link bootsrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!-- link CSS -->
-    <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -73,7 +72,7 @@
                 }
                 ?>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET"">
-                <div class=" d-flex justify-content-between mb-3 card-color">
+                <div class=" d-flex justify-content-between card-color">
                     <div class="w-100">
                         <h3 class="bg-dark text-light text-aligne-center d-flex justify-content-center">23 NOV 11:00 H</h3>
                         <div class="d-flex  align-items-center justify-content-end m-2">
@@ -110,53 +109,53 @@
                 <input type="submit"  class="btn text-center mx-auto btn-danger"  value="RESET ALL VALUES">
             </form>
         </section>
-    <?php
-    ?>
-    <!-- Create Table -->
-    <section class="col-md-6 px-3 py-4 w-50">
-            <h2 class="  py-2 text-center text-danger  ">results Table</h2>
-            <div class="table-responsive">
-                <table class="table table-dark table-striped w-100">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>TEAM</th>
-                            <th>POINTS</th>
-                            <th>GAMES PLAYED</th>
-                            <th>GAMES WON</th>
-                            <th>GAMES EQUAL</th>
-                            <th>GAME LOSTS</th>
-                            <th>Goals Scored</th>
-                            <th>Goals Recieved</th>
-                            <th>DIFF</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        if (isset($_REQUEST['simulate']) &&  $_REQUEST['simulate'] == "simulate") 
-                        {
-                            foreach(sortByTwoEquals(resultCouter($matches)) as  $game => $gameInfo){
-                        ?>
-                        <tr>
-                            <td><?php echo $game + 1; ?> </td>
-                            <td><?php echo $gameInfo["Team"];  ?></td>
-                            <td><?php echo $gameInfo["POINTS"];  ?></td>
-                            <td><?php echo $gameInfo["GAMES_PLAYED"];  ?></td>
-                            <td><?php echo $gameInfo["GAMES_WON"];  ?></td>
-                            <td><?php echo $gameInfo["GAMES_EQUAL"];  ?></td>
-                            <td><?php echo $gameInfo["GAME_LOSTS"];  ?></td>
-                            <td><?php echo $gameInfo["GOALS_SCORED"];  ?></td>
-                            <td><?php echo $gameInfo["GOALS_RECEIVED"];  ?></td>
-                            <td><?php echo $gameInfo["DIFF"]; ?></td>
-                        </tr>
-                        <?php
-                    }    
-                }
-                ?>
-                        <form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="text-center">
-                            <input type="hidden" name="simulate" value="simulate">
-                            <input type="submit" class="btn text-center mx-auto btn-info text-light w-50 d-flex justify-content-center" value="simulate">
-                        </form>
+        <?php
+        ?>
+        <!-- Create Table -->
+        <section class="col-md-6 px-3 py-4 w-50">
+        <h2 class="  py-2 text-center text-danger  ">results Table</h2>
+        <div class="table-responsive">
+            <table class="table table-dark table-striped w-100">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>TEAM</th>
+                        <th>POINTS</th>
+                        <th>GAMES PLAYED</th>
+                        <th>GAMES WON</th>
+                        <th>GAMES EQUAL</th>
+                        <th>GAME LOSTS</th>
+                        <th>Goals Scored</th>
+                        <th>Goals Recieved</th>
+                        <th>DIFF</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if (isset($_REQUEST['simulate']) &&  $_REQUEST['simulate'] == "simulate") {
+                        foreach(sortByTwoEquals(resultCouter($matches)) as  $game => $gameInfo) :
+                    ?>
+                            <tr>
+                                <td><?php echo $game + 1; ?> </td>
+                                <td><?php echo $gameInfo["Team"];  ?></td>
+                                <td><?php echo $gameInfo["POINTS"];  ?></td>
+                                <td><?php echo $gameInfo["GAMES_PLAYED"];  ?></td>
+                                <td><?php echo $gameInfo["GAMES_WON"];  ?></td>
+                                <td><?php echo $gameInfo["GAMES_EQUAL"];  ?></td>
+                                <td><?php echo $gameInfo["GAME_LOSTS"];  ?></td>
+                                <td><?php echo $gameInfo["GOALS_SCORED"];  ?></td>
+                                <td><?php echo $gameInfo["GOALS_RECEIVED"];  ?></td>
+                                <td><?php echo $gameInfo["DIFF"]; ?></td>
+                            </tr>
+                    <?php
+                        endforeach;
+                    };    
+                    ?>
+                    <form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="text-center">
+                        <input type="hidden" name="simulate" value="simulate">
+                        <input type="submit" class="btn text-center mx-auto btn-info text-light w-50 d-flex justify-content-center" value="simulate">
+                    </form>
+            </table>
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
