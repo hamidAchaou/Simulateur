@@ -43,7 +43,6 @@
             // print_r($matches);
             setcookie('matches', json_encode($matches));
         } elseif ($_SERVER["REQUEST_METHOD"] == 'GET' && isset($_GET['reset'])){
-            echo "lmjeyf";
             $matches = array( 
                 "morrocoVCroatia" => array("MOROCCO" => 0 , "CROATIA" => 0 , "Status" => false  ) ,
                 "morrocoVSBelgium" => array("MOROCCO" => 0 , "BELGium" => 0   , "Status" => false )    ,
@@ -71,7 +70,7 @@
 
                 }
                 ?>
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET"">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
                 <div class=" d-flex justify-content-between card-color">
                     <div class="w-100">
                         <h3 class="bg-dark text-light text-aligne-center d-flex justify-content-center">23 NOV 11:00 H</h3>
