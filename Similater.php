@@ -55,8 +55,8 @@
         }
         ?>
     </div>
-    <main class="container d-flex gap-3 w-100">
-        <section>
+    <main class="container d-flex gap-2 w-100">
+        <section class="">
             <?php 
           foreach ($matches as $key => $value) :
             $contries = [];
@@ -103,18 +103,17 @@
             <?php 
           endforeach;
             ?>
-            <form method='GET' action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                <input type="hidden" name="reset" value="reset">
-                <input type="submit"  class="btn text-center mx-auto btn-danger"  value="RESET ALL VALUES">
-            </form>
         </section>
         <?php
         ?>
         <!-- Create Table -->
         <section class="col-md-6 px-3 py-4 w-50">
-        <h2 class="  py-2 text-center text-danger  ">results Table</h2>
-        <div class="table-responsive">
-            <table class="table table-dark table-striped w-100">
+            <h2 class="  py-2 text-center text-danger  ">results Table</h2>
+            <form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="text-center">
+                <input type="hidden" name="simulate" value="simulate">
+                <input type="submit" class="btn text-center mx-auto btn-info text-light w-50 d-flex justify-content-center" value="simulate">
+            </form>
+            <table class="table-responsive table table-dark table-striped w-100">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -150,11 +149,11 @@
                         endforeach;
                     };    
                     ?>
-                    <form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="text-center">
-                        <input type="hidden" name="simulate" value="simulate">
-                        <input type="submit" class="btn text-center mx-auto btn-info text-light w-50 d-flex justify-content-center" value="simulate">
-                    </form>
             </table>
+            <form method='GET' action="<?php echo $_SERVER['PHP_SELF']; ?>" class="w-100">
+                <input type="hidden" name="reset" value="reset">
+                <input type="submit"  class="btn text-center mx-auto btn-danger w-25 d-flex justify-content-center"  value="RESET ALL VALUES">
+            </form>
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
